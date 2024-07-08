@@ -2,6 +2,11 @@ let userScore=0
 let compScore=0
 const choices=document.querySelectorAll(".choice");
 const msg=document.querySelector("#msg")
+const userScorePara=document.querySelector("#user-score")
+
+
+const compScorePara=document.querySelector("#com-score")
+
 const genComChoice= ()=>{
 const options=["rock", "paper", "scissors"]
 const randidx= Math.floor(Math.random()*3);
@@ -15,12 +20,16 @@ const showDraw=()=>{
 const showWInner= (userWin,userChoice,compChoice)=>
 {
   if(userWin){
+    userScore++;
+    userScorePara.innerText=userScore
     
     msg.innerText=`You Win!!! Your ${userChoice} beats ${compChoice}`
     msg.style.backgroundColor="green"
 
   }
   else{
+    compScore++;
+    compScorePara.innerText=compScore;
     msg.innerText=`You Lose!!! Computer ${compChoice} beats Your ${userChoice}`
       msg.style.backgroundColor="red"
   }
